@@ -2,6 +2,7 @@ import React, { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import About from "./pages/About";
+import FooterComp from "./components/Footer";
 
 const Home = lazy(() => import("./pages/Home"));
 const SignUp = lazy(() => import("./pages/SignUp"));
@@ -63,6 +64,7 @@ const App = () => {
           }
         />
       </Routes>
+      <FooterComp />
     </BrowserRouter>
   );
 };
