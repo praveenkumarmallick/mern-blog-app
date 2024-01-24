@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import About from "./pages/About";
 import FooterComp from "./components/Footer";
+import PrivateRoute from "./components/PrivateRoute";
 
 const Home = lazy(() => import("./pages/Home"));
 const SignUp = lazy(() => import("./pages/SignUp"));
@@ -39,14 +40,16 @@ const App = () => {
             </Suspense>
           }
         />
-        <Route
-          path="/dashboard"
-          element={
-            <Suspense fallback={<div>Loading...</div>}>
-              <Dashboard />
-            </Suspense>
-          }
-        />
+        <Route element={<PrivateRoute />}>
+          <Route
+            path="/dashboard"
+            element={
+              <Suspense fallback={<div>Loading...</div>}>
+                <Dashboard />
+              </Suspense>
+            }
+          />
+        </Route>
         <Route
           path="/projects"
           element={
