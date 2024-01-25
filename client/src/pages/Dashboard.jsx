@@ -1,15 +1,18 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import DashSidebar from "../components/DashSidebar";
 import DashProfile from "../components/DashProfile";
+import DashPosts from "../components/DashPost";
+import DashUsers from "../components/DashUser";
+import DashComments from "../components/DashComment";
+import DashboardComp from "../components/DashboardComp";
 
-const Dashboard = () => {
+export default function Dashboard() {
   const location = useLocation();
   const [tab, setTab] = useState("");
   useEffect(() => {
     const urlParams = new URLSearchParams(location.search);
     const tabFromUrl = urlParams.get("tab");
-    // console.log(tabFromUrl);
     if (tabFromUrl) {
       setTab(tabFromUrl);
     }
@@ -20,10 +23,16 @@ const Dashboard = () => {
         {/* Sidebar */}
         <DashSidebar />
       </div>
-      {/* Profile */}
+      {/* profile... */}
       {tab === "profile" && <DashProfile />}
+      {/* posts... */}
+      {tab === "posts" && <DashPosts />}
+      {/* users */}
+      {tab === "users" && <DashUsers />}
+      {/* comments  */}
+      {tab === "comments" && <DashComments />}
+      {/* dashboard comp */}
+      {tab === "dash" && <DashboardComp />}
     </div>
   );
-};
-
-export default Dashboard;
+}

@@ -1,4 +1,4 @@
-import { Alert, Button, Modal, TextInput } from "flowbite-react";
+import { Alert, Button, Modal, ModalBody, TextInput } from "flowbite-react";
 import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import {
@@ -10,15 +10,15 @@ import {
 import { app } from "../firebase";
 import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
-// import {
-//   updateStart,
-//   updateSuccess,
-//   updateFailure,
-//   deleteUserStart,
-//   deleteUserSuccess,
-//   deleteUserFailure,
-//   signoutSuccess,
-// } from "../redux/user/userSlice";
+import {
+  updateStart,
+  updateSuccess,
+  updateFailure,
+  deleteUserStart,
+  deleteUserSuccess,
+  deleteUserFailure,
+  signoutSuccess,
+} from "../redux/user/Slice";
 import { useDispatch } from "react-redux";
 import { HiOutlineExclamationCircle } from "react-icons/hi";
 import { Link } from "react-router-dom";
